@@ -95,11 +95,11 @@ void setup() {
   Serial.println(_local_port);
 
   xTaskCreateUniversal(
-    TaskOsc, "TaskOsc", 8192, NULL, 2, NULL, ARDUINO_RUNNING_CORE);
+    TaskSerial, "TaskSerial", 8192, NULL, 2, NULL, ARDUINO_RUNNING_CORE);
   xTaskCreateUniversal(
-    TaskDisplay, "TaskDisplay", 8192, NULL, 3, NULL, ARDUINO_RUNNING_CORE);
+     TaskOsc, "TaskOsc", 8192, NULL, 3, NULL, ARDUINO_RUNNING_CORE);
   xTaskCreateUniversal(
-    TaskSerial, "TaskSerial", 8192, NULL, 4, NULL, ARDUINO_RUNNING_CORE);
+    TaskDisplay, "TaskDisplay", 8192, NULL, 4, NULL, ARDUINO_RUNNING_CORE);
 }
 
 // mapがうまく機能しなかったので、関数を用意しました
@@ -162,4 +162,5 @@ void TaskSerial(void *pvParameters) {
 
 
 void loop() {
+  //vTaskDelay(1);
 }
